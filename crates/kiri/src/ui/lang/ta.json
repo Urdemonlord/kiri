@@ -1837,5 +1837,7 @@
   "Continue anyway": "இருந்தாலும் தொடர்",
   "One step didn't work. Everything else is ready.": "ஒரு படி வேலை செய்யவில்லை. மற்ற அனைத்தும் தயார்.",
   "Some steps didn't work. Everything else is ready.": "சில படிகள் வேலை செய்யவில்லை. மற்ற அனைத்தும் தயார்.",
-  "No matches": "பொருத்தம் இல்லை"
+  "No matches": "பொருத்தம் இல்லை",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

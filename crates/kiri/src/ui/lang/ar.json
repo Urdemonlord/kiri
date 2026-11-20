@@ -1837,5 +1837,7 @@
   "Continue anyway": "المتابعة على أي حال",
   "One step didn't work. Everything else is ready.": "لم تنجح خطوة واحدة. كل شيء آخر جاهز.",
   "Some steps didn't work. Everything else is ready.": "لم تنجح بعض الخطوات. كل شيء آخر جاهز.",
-  "No matches": "لا توجد نتائج مطابقة"
+  "No matches": "لا توجد نتائج مطابقة",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

@@ -1837,5 +1837,7 @@
   "Continue anyway": "Continuer quand même",
   "One step didn't work. Everything else is ready.": "Une étape a échoué. Tout le reste est prêt.",
   "Some steps didn't work. Everything else is ready.": "Certaines étapes ont échoué. Tout le reste est prêt.",
-  "No matches": "Aucun résultat"
+  "No matches": "Aucun résultat",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

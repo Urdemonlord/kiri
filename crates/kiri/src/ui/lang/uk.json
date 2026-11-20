@@ -1837,5 +1837,7 @@
   "Continue anyway": "Усе одно продовжити",
   "One step didn't work. Everything else is ready.": "Один крок не вдався. Усе інше готове.",
   "Some steps didn't work. Everything else is ready.": "Деякі кроки не вдалися. Усе інше готове.",
-  "No matches": "Збігів немає"
+  "No matches": "Збігів немає",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

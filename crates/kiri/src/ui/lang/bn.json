@@ -1837,5 +1837,7 @@
   "Continue anyway": "তবুও চালিয়ে যান",
   "One step didn't work. Everything else is ready.": "একটি ধাপ কাজ করেনি। বাকি সব প্রস্তুত।",
   "Some steps didn't work. Everything else is ready.": "কিছু ধাপ কাজ করেনি। বাকি সব প্রস্তুত।",
-  "No matches": "কোনো মিল নেই"
+  "No matches": "কোনো মিল নেই",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

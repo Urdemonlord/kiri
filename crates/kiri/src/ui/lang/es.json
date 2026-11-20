@@ -1837,5 +1837,7 @@
   "Continue anyway": "Continuar de todos modos",
   "One step didn't work. Everything else is ready.": "Un paso no funcionó. Todo lo demás está listo.",
   "Some steps didn't work. Everything else is ready.": "Algunos pasos no funcionaron. Todo lo demás está listo.",
-  "No matches": "Sin coincidencias"
+  "No matches": "Sin coincidencias",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

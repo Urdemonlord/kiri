@@ -1837,5 +1837,7 @@
   "Continue anyway": "Continua igualment",
   "One step didn't work. Everything else is ready.": "Un pas no ha funcionat. Tota la resta està a punt.",
   "Some steps didn't work. Everything else is ready.": "Alguns passos no han funcionat. Tota la resta està a punt.",
-  "No matches": "Cap coincidència"
+  "No matches": "Cap coincidència",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

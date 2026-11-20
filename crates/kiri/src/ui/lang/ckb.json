@@ -1837,5 +1837,7 @@
   "Continue anyway": "هەر بەردەوام بە",
   "One step didn't work. Everything else is ready.": "یەک هەنگاو سەرکەوتوو نەبوو. هەموو شتێکی تر ئامادەیە.",
   "Some steps didn't work. Everything else is ready.": "هەندێک هەنگاو سەرکەوتوو نەبوون. هەموو شتێکی تر ئامادەیە.",
-  "No matches": "هیچ شتێکی هاوتا نییە"
+  "No matches": "هیچ شتێکی هاوتا نییە",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

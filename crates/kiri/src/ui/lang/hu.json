@@ -1837,5 +1837,7 @@
   "Continue anyway": "Folytatás mindenképp",
   "One step didn't work. Everything else is ready.": "Egy lépés nem sikerült. Minden más készen áll.",
   "Some steps didn't work. Everything else is ready.": "Néhány lépés nem sikerült. Minden más készen áll.",
-  "No matches": "Nincs találat"
+  "No matches": "Nincs találat",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

@@ -1837,5 +1837,7 @@
   "Continue anyway": "Vis tiek tęsti",
   "One step didn't work. Everything else is ready.": "Vienas veiksmas nepavyko. Visa kita paruošta.",
   "Some steps didn't work. Everything else is ready.": "Keli veiksmai nepavyko. Visa kita paruošta.",
-  "No matches": "Atitikmenų nėra"
+  "No matches": "Atitikmenų nėra",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

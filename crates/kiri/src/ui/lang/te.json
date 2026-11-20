@@ -1837,5 +1837,7 @@
   "Continue anyway": "ఏదేమైనా కొనసాగించు",
   "One step didn't work. Everything else is ready.": "ఒక దశ పని చేయలేదు. మిగతావన్నీ సిద్ధంగా ఉన్నాయి.",
   "Some steps didn't work. Everything else is ready.": "కొన్ని దశలు పని చేయలేదు. మిగతావన్నీ సిద్ధంగా ఉన్నాయి.",
-  "No matches": "సరిపోలికలు లేవు"
+  "No matches": "సరిపోలికలు లేవు",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

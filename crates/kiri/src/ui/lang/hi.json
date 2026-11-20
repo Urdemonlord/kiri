@@ -1837,5 +1837,7 @@
   "Continue anyway": "फिर भी जारी रखें",
   "One step didn't work. Everything else is ready.": "एक चरण काम नहीं किया। बाकी सब तैयार है।",
   "Some steps didn't work. Everything else is ready.": "कुछ चरण काम नहीं किए। बाकी सब तैयार है।",
-  "No matches": "कोई मेल नहीं"
+  "No matches": "कोई मेल नहीं",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

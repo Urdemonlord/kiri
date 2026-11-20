@@ -1837,5 +1837,7 @@
   "Continue anyway": "Бәрібір жалғастыру",
   "One step didn't work. Everything else is ready.": "Бір қадам орындалмады. Қалғанының бәрі дайын.",
   "Some steps didn't work. Everything else is ready.": "Кейбір қадамдар орындалмады. Қалғанының бәрі дайын.",
-  "No matches": "Сәйкестік жоқ"
+  "No matches": "Сәйкестік жоқ",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

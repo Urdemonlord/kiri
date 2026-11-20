@@ -1837,5 +1837,7 @@
   "Continue anyway": "ดำเนินการต่อ",
   "One step didn't work. Everything else is ready.": "ขั้นตอนหนึ่งไม่สำเร็จ ส่วนอื่นพร้อมทั้งหมด",
   "Some steps didn't work. Everything else is ready.": "บางขั้นตอนไม่สำเร็จ ส่วนอื่นพร้อมทั้งหมด",
-  "No matches": "ไม่พบรายการที่ตรงกัน"
+  "No matches": "ไม่พบรายการที่ตรงกัน",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

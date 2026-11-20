@@ -1837,5 +1837,7 @@
   "Continue anyway": "Tetap lanjutkan",
   "One step didn't work. Everything else is ready.": "Satu langkah tidak berhasil. Yang lainnya sudah siap.",
   "Some steps didn't work. Everything else is ready.": "Beberapa langkah tidak berhasil. Yang lainnya sudah siap.",
-  "No matches": "Tidak ada yang cocok"
+  "No matches": "Tidak ada yang cocok",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }

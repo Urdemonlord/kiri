@@ -1837,5 +1837,7 @@
   "Continue anyway": "仍然继续",
   "One step didn't work. Everything else is ready.": "有一个步骤未成功，其余均已就绪。",
   "Some steps didn't work. Everything else is ready.": "有些步骤未成功，其余均已就绪。",
-  "No matches": "没有匹配项"
+  "No matches": "没有匹配项",
+  "Close the window to the tray": "Close the window to the tray",
+  "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before.": "Closing the window leaves Kiri in the tray; the engine keeps running. Off quits when the window closes, as before."
 }
