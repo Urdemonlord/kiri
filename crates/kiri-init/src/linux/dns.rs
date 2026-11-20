@@ -150,12 +150,38 @@ fn send_to(fd: RawFd, data: &[u8], to: &libc::sockaddr_in) {
 impl Dns {
     /// Starts answering on a bridge's gateway address (once per bridge).
     pub fn serve(&mut self, bridge: &str, gateway: [u8; 4]) -> io::Result<()> {
+        self.serve_with(bridge, gateway, bound)
+    }
+
+    /// `serve` with the bind injectable, so tests can script its failures.
+    /// A gateway bind that fails with EINVAL (WSL intercepts fixed-port
+    /// binds in the root network namespace, #477) falls back to a wildcard
+    /// bind, which still receives gateway-addressed packets; if that fails
+    /// too the start continues without a gateway listener instead of
+    /// aborting, and the warning says so. Any other first failure (notably
+    /// EADDRINUSE, #248) still aborts the start, as before.
+    fn serve_with(&mut self, bridge: &str, gateway: [u8; 4], bind: impl Fn([u8; 4], u16) -> io::Result<OwnedFd>) -> io::Result<()> {
         if self.servers.iter().any(|s| s.container.is_none() && s.bridges.iter().any(|b| b == bridge)) {
             return Ok(());
         }
-        let sock = bound(gateway, 53)?;
-        self.servers.push(Server { bridges: vec![bridge.to_owned()], sock, container: None });
-        Ok(())
+        match bind(gateway, 53) {
+            Ok(sock) => {
+                self.servers.push(Server { bridges: vec![bridge.to_owned()], sock, container: None });
+                Ok(())
+            }
+            Err(e) if e.kind() == io::ErrorKind::InvalidInput => match bind([0, 0, 0, 0], 53) {
+                Ok(sock) => {
+                    eprintln!("kiri-init: dns: gateway {}.{}.{}.{} refused a fixed-port bind ({e}); answering on 0.0.0.0:53 instead", gateway[0], gateway[1], gateway[2], gateway[3]);
+                    self.servers.push(Server { bridges: vec![bridge.to_owned()], sock, container: None });
+                    Ok(())
+                }
+                Err(e2) => {
+                    eprintln!("kiri-init: dns: no gateway listener on {bridge} ({e}; wildcard bind failed: {e2}); gateway-addressed queries on this network will fail, containers on it resolve names at 127.0.0.11");
+                    Ok(())
+                }
+            },
+            Err(e) => Err(e),
+        }
     }
 
     /// Starts answering at 127.0.0.11:53 in container `pid`'s network
@@ -717,6 +743,65 @@ mod tests {
         dns.name_network("kiri1", "frontend");
         dns.forget_bridge("kiri1");
         assert!(dns.networks.is_empty());
+    }
+
+    /// #477: WSL refuses a fixed-port bind on the gateway, so `serve`
+    /// falls back to a wildcard bind, and degrades gracefully when that
+    /// fails too. Any other first failure (#248's EADDRINUSE) still
+    /// aborts the start.
+    #[test]
+    fn gateway_bind_einval_falls_back_to_wildcard() {
+        use std::cell::RefCell;
+        use std::io::ErrorKind;
+        let calls = RefCell::new(Vec::new());
+        let mut dns = Dns::default();
+        let bind = |ip: [u8; 4], port: u16| {
+            calls.borrow_mut().push((ip, port));
+            if ip == [172, 21, 0, 1] {
+                Err(std::io::Error::from(ErrorKind::InvalidInput))
+            } else {
+                udp_socket()
+            }
+        };
+        assert!(dns.serve_with("kbnet", [172, 21, 0, 1], bind).is_ok());
+        assert_eq!(dns.servers.len(), 1);
+        assert_eq!(*calls.borrow(), vec![([172, 21, 0, 1], 53), ([0, 0, 0, 0], 53)]);
+    }
+
+    #[test]
+    fn gateway_bind_einval_then_wildcard_fails_degrades() {
+        use std::io::ErrorKind;
+        let mut dns = Dns::default();
+        let bind = |ip: [u8; 4], _port: u16| {
+            if ip == [172, 21, 0, 1] {
+                Err(std::io::Error::from(ErrorKind::InvalidInput))
+            } else {
+                Err(std::io::Error::from(ErrorKind::AddrInUse))
+            }
+        };
+        assert!(dns.serve_with("kbnet", [172, 21, 0, 1], bind).is_ok());
+        assert!(dns.servers.is_empty());
+    }
+
+    #[test]
+    fn gateway_bind_addrinuse_still_fails() {
+        use std::io::ErrorKind;
+        let mut dns = Dns::default();
+        let bind = |_ip: [u8; 4], _port: u16| Err::<std::os::fd::OwnedFd, _>(std::io::Error::from(ErrorKind::AddrInUse));
+        let e = dns.serve_with("kbnet", [172, 21, 0, 1], bind).expect_err("EADDRINUSE must abort the start");
+        assert_eq!(e.kind(), ErrorKind::AddrInUse);
+        assert!(dns.servers.is_empty());
+    }
+
+    #[test]
+    fn gateway_bind_to_a_non_local_address_still_fails() {
+        // A real bind, not a scripted one: 203.0.113.1 is TEST-NET, never
+        // local, so the bind fails with EADDRNOTAVAIL, which must escape
+        // instead of degrading.
+        let mut dns = Dns::default();
+        let e = dns.serve("kiriX", [203, 0, 113, 1]).expect_err("a non-local gateway must fail");
+        assert_eq!(e.kind(), std::io::ErrorKind::AddrNotAvailable);
+        assert!(dns.servers.is_empty());
     }
 
     #[test]
